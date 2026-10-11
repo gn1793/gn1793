@@ -66,11 +66,17 @@
 
 ## GitHub Stats
 
-Public GitHub statistics will appear after the first successful automated sync.
+| Metric | Public GitHub data |
+| :--- | ---: |
+| Public repositories | **13** |
+| Stars received | **0** |
+| Followers | **1** |
+| Following | **3** |
 <sub>Counts are based on publicly accessible GitHub data, not an inferred grade or private contributions.</sub>
 
 ---
 
 ## Recent Activity
 
-Recent public development updates will appear after the next successful sync.
+- **[AI-Usage-System-Monitor](https://github.com/gn1793/AI-Usage-System-Monitor)** · [Update README\.md](https://github.com/gn1793/AI-Usage-System-Monitor/commit/1c881634b03da79391da09aae86c08ddfa3c564f) <sub>(2026-10-11)</sub>
+- **[CodeMonitor](https://github.com/gn1793/CodeMonitor)** · [Update schema\.py](https://github.com/gn1793/CodeMonitor/commit/6802d30506fbbb3cf147ee01f6c83ffa5d9f58ae) <sub>(2025-09-20)</sub>

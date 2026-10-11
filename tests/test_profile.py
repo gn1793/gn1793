@@ -31,22 +31,26 @@ if __name__ == '__main__':
     unittest.main()
 
 
-class VisualRenderTests(unittest.TestCase):
-    def test_svg_cards_generated_and_valid(self):
-        import xml.etree.ElementTree as ET
-        from render_cards import render, OUT
-        render()
-        files = sorted(OUT.glob('*.svg'))
-        self.assertEqual(len(files), 13)
-        for path in files:
-            ET.parse(path)
-            self.assertIn('viewBox', path.read_text(encoding='utf-8'))
-
-    def test_readme_links_to_generated_cards(self):
+class TextRenderTests(unittest.TestCase):
+    def test_readme_is_text_first(self):
         from build_readme import main
         main()
         readme = (ROOT / 'README.md').read_text(encoding='utf-8')
-        self.assertIn('assets/generated/latest-build.svg', readme)
-        self.assertIn('research-admet-prediction.svg', readme)
-        self.assertIn('assets/generated/stack-5.svg', readme)
+        self.assertIn('assets/hero.png', readme)
+        self.assertIn('RNA–Ligand Pose Quality Prediction', readme)
+        self.assertIn('ADMET Prediction', readme)
+        self.assertIn('The Build Lab', readme)
+        self.assertIn('GitHub · Linux · Swift', readme)
+        self.assertNotIn('assets/generated/', readme)
         self.assertNotIn('Docker', readme)
+
+    def test_markdown_links(self):
+        from build_readme import main
+        main()
+        readme = (ROOT / 'README.md').read_text(encoding='utf-8')
+        self.assertIn('https://github.com/gn1793/AI-Usage-System-Monitor', readme)
+        self.assertIn('https://github.com/gn1793/CodeMonitor', readme)
+
+
+if __name__ == '__main__':
+    unittest.main()

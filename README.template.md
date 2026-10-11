@@ -1,54 +1,74 @@
-<!-- Generated automatically. Update README.template.md and data/*.yaml. -->
-<p align="center"><img src="assets/hero.png" width="100%" alt="Original scientific molecular discovery banner" /></p>
+<!-- Generated from README.template.md and data/*.yaml. Edit the sources, not README.md. -->
+<p align="center">
+  <img src="assets/hero.png" alt="Scientific molecular discovery banner" width="100%" />
+</p>
 
 <h1 align="center">{{ profile.headline | e }}</h1>
 <p align="center"><strong>{{ profile.tagline | e }}</strong></p>
 
+---
+
 ## Research Interests
-<table><tr>
-{% for interest in profile.interests %}<td width="25%" align="center"><img src="assets/generated/interest-{{ loop.index }}.svg" width="100%" alt="{{ interest.title | e }}" /></td>{% endfor %}
-</tr></table>
+
+| Research area | Focus |
+| :--- | :--- |
+{% for interest in profile.interests %}| **{{ interest.title | md_cell }}** | {{ interest.detail | md_cell }} |
+{% endfor %}
 
 ## Featured Research
-<table><tr>
-{% for project in projects %}<td width="50%" valign="top"><img src="assets/generated/research-{{ project.id }}.svg" width="100%" alt="{{ project.title | e }}" />{% if project.repository %}<br/><a href="https://github.com/{{ project.repository | e }}">Research repository ↗</a>{% endif %}</td>{% endfor %}
-</tr></table>
+
+| {% for project in projects %}{{ project.title | md_cell }}{% if not loop.last %} | {% endif %}{% endfor %} |
+| {% for project in projects %}:---{% if not loop.last %} | {% endif %}{% endfor %} |
+| {% for project in projects %}**{{ project.status | md_cell }}**<br>{{ project.description | md_cell }}<br><br>{% for keyword in project.keywords %}`{{ keyword | md_cell }}` {% endfor %}{% if project.repository %}<br>[View research repository →](https://github.com/{{ project.repository }}){% endif %}{% if not loop.last %} | {% endif %}{% endfor %} |
 
 ## The Build Lab
+
 *Turning ideas into working software, one project at a time.*
 
 {% if latest_build %}
-<a href="https://github.com/{{ latest_build.repository | e }}"><img src="assets/generated/latest-build.svg" width="100%" alt="Latest build: {{ latest_build.title | e }}" /></a>
+### Latest Build · {{ latest_build.title | md_text }}
+
+{{ latest_build.description | md_text }}
+
+**Built with:** {{ latest_build.technologies | join(' · ') | md_text }}
+
+**[View project on GitHub →](https://github.com/{{ latest_build.repository }})**
 {% endif %}
 
 {% if archive_builds %}
-<details open><summary><strong>Build Archive · {{ archive_builds | length }} released projects</strong></summary>
+<details open>
+<summary><strong>Build Archive ({{ archive_builds | length }})</strong></summary>
 
-{% for build in archive_builds %}
-<a href="https://github.com/{{ build.repository | e }}"><img src="assets/generated/archive-{{ build.id }}.svg" width="100%" alt="{{ build.title | e }} — repository" /></a>
+| Project | Description | Technologies |
+| :--- | :--- | :--- |
+{% for build in archive_builds %}| **[{{ build.title | md_cell }}](https://github.com/{{ build.repository }})** | {{ build.description | md_cell }} | {{ build.technologies | join(' · ') | md_cell }} |
 {% endfor %}
 </details>
 {% endif %}
 
 ## Technical Stack
-<table><tr>
-{% for group in stack.groups %}<td width="20%" valign="top" align="center"><img src="assets/generated/stack-{{ loop.index }}.svg" width="100%" alt="{{ group.name | e }}: {{ group.technologies | join(', ') | e }}" /></td>{% endfor %}
-</tr></table>
+
+| Category | Technologies & Methods |
+| :--- | :--- |
+{% for group in stack.groups %}| **{{ group.name | md_cell }}** | {{ group.technologies | join(' · ') | md_cell }} |
+{% endfor %}
 
 ## Publications
+
 {% if publications %}
-{% for paper in publications %}
-- **{{ paper.title | md_text }}** ({{ paper.year }}) — {{ paper.venue | md_text }}{% if paper.doi %} · [DOI](https://doi.org/{{ paper.doi }}){% endif %}{% if paper.arxiv %} · [arXiv](https://arxiv.org/abs/{{ paper.arxiv }}){% endif %}
+{% for paper in publications %}- **{{ paper.title | md_text }}** ({{ paper.year }}) — {{ paper.venue | md_text }}{% if paper.doi %} · [DOI](https://doi.org/{{ paper.doi }}){% endif %}{% if paper.arxiv %} · [arXiv](https://arxiv.org/abs/{{ paper.arxiv }}){% endif %}
 {% endfor %}
 {% else %}
-> Research outputs and publications will be listed here as they become publicly available.
+Research outputs and publications will be listed here as they become publicly available.
 {% endif %}
 
 ## Recent Development Activity
+
 {% if activity %}
-{% for event in activity %}
-- **[{{ event.repo | md_text }}](https://github.com/{{ event.repo }})** — [{{ event.message | md_text }}]({{ event.url }}) · {{ event.date }}
+| Repository | Latest update | Date |
+| :--- | :--- | :--- |
+{% for event in activity %}| [{{ event.repo | md_cell }}](https://github.com/{{ event.repo }}) | [{{ event.message | md_cell }}]({{ event.url }}) | {{ event.date | md_cell }} |
 {% endfor %}
 {% else %}
-Recent public repository updates will appear after the first successful GitHub Actions synchronization.
+Public development updates will appear after GitHub Actions syncs recent commits.
 {% endif %}

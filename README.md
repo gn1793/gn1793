@@ -74,4 +74,5 @@
 
 ## Recent Activity
 
-Recent public development updates will appear after the next successful sync.
+- **[AI-Usage-System-Monitor](https://github.com/gn1793/AI-Usage-System-Monitor)** · [Update README\.md](https://github.com/gn1793/AI-Usage-System-Monitor/commit/1c881634b03da79391da09aae86c08ddfa3c564f) <sub>(2026-10-11)</sub>
+- **[CodeMonitor](https://github.com/gn1793/CodeMonitor)** · [Update schema\.py](https://github.com/gn1793/CodeMonitor/commit/6802d30506fbbb3cf147ee01f6c83ffa5d9f58ae) <sub>(2025-09-20)</sub>

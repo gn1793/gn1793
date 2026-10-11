@@ -8,25 +8,21 @@
 ---
 ## Featured Research
 
+<p><em>Exploring computational methods for drug discovery and molecular understanding</em></p>
+
 <table width="100%">
 <tr>
 <td width="50%" valign="top">
-<sub>01 / STRUCTURE-BASED DRUG DISCOVERY</sub>
+<sub>01 / RESEARCH PROJECT</sub>
 <h3>RNA–Ligand Pose Quality Prediction</h3>
 <p>Developing geometric deep learning models to assess RNA–ligand docking pose quality and improve pose reranking.</p>
-</td>
-<td width="50%" valign="top">
-<sub>02 / MOLECULAR PROPERTY PREDICTION</sub>
-<h3>ADMET Prediction</h3>
-<p>Developing machine learning approaches for predicting absorption, distribution, metabolism, excretion, and toxicity properties of small molecules.</p>
-</td>
-</tr>
-<tr>
-<td width="50%" valign="bottom">
-<p><code>RNA–Ligand</code> <code>RMSD Prediction</code> <code>Geometric DL</code> </p>
+<br><p><code>RNA–Ligand</code> <code>RMSD Prediction</code> <code>Geometric DL</code> </p>
 <p><sub>Status: In Progress</sub></p>
 </td>
-<td width="50%" valign="bottom">
+<td width="50%" valign="top">
+<sub>02 / RESEARCH PROJECT</sub>
+<h3>ADMET Prediction</h3>
+<p>Developing machine learning approaches for predicting absorption, distribution, metabolism, excretion, and toxicity properties of small molecules.</p>
 <p><code>ADMET</code> <code>Cheminformatics</code> <code>Property Prediction</code> </p>
 <p><sub>Status: In Progress</sub></p>
 </td>
@@ -67,14 +63,16 @@
 <br>
 <sub>01 / TOOLKIT</sub>
 <h3>Languages</h3>
-<p><code>Python</code> <code>Swift</code> </p>
+<p><em>Core languages for research workflows and application development.</em></p>
+<p><code>Python</code> <code>Swift</code></p>
 <br>
 </td>
 <td width="50%" valign="top">
 <br>
 <sub>02 / TOOLKIT</sub>
 <h3>Deep Learning</h3>
-<p><code>PyTorch</code> <code>PyTorch Geometric</code> </p>
+<p><em>Frameworks for geometric learning and model development.</em></p>
+<p><code>PyTorch</code> <code>PyTorch Geometric</code></p>
 <br>
 </td>
 </tr>
@@ -83,14 +81,16 @@
 <br>
 <sub>03 / TOOLKIT</sub>
 <h3>Molecular</h3>
-<p><code>RDKit</code> <code>Biopython</code> <code>Cheminformatics</code> </p>
+<p><em>Libraries for cheminformatics and molecular structure handling.</em></p>
+<p><code>RDKit</code> <code>Biopython</code> <code>Cheminformatics</code></p>
 <br>
 </td>
 <td width="50%" valign="top">
 <br>
 <sub>04 / TOOLKIT</sub>
 <h3>Engineering</h3>
-<p><code>GitHub</code> <code>Linux</code> </p>
+<p><em>Infrastructure and tooling for reproducible development.</em></p>
+<p><code>GitHub</code> <code>Linux</code></p>
 <br>
 </td>
 </tr>
@@ -110,7 +110,7 @@
 
 <table width="100%">
 <tr>
-<td width="100%" valign="top">
+<td width="50%" valign="top">
 <br>
 <sub>01 / LATEST UPDATE &nbsp;·&nbsp; 2026-10-11</sub>
 <h3><a href="https://github.com/gn1793/AI-Usage-System-Monitor">AI-Usage-System-Monitor</a></h3>
@@ -118,9 +118,7 @@
 <p><a href="https://github.com/gn1793/AI-Usage-System-Monitor/commit/1c881634b03da79391da09aae86c08ddfa3c564f">View commit ↗</a></p>
 <br>
 </td>
-</tr>
-<tr>
-<td width="100%" valign="top">
+<td width="50%" valign="top">
 <br>
 <sub>02 / RECENT UPDATE &nbsp;·&nbsp; 2025-09-20</sub>
 <h3><a href="https://github.com/gn1793/CodeMonitor">CodeMonitor</a></h3>

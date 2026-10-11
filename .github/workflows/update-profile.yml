@@ -41,6 +41,10 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/fetch_activity.py
+      - name: Fetch public GitHub stats
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/fetch_stats.py
       - name: Render README
         run: python scripts/build_readme.py
       - name: Commit README only when modified

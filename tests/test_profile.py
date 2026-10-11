@@ -40,7 +40,7 @@ class TextRenderTests(unittest.TestCase):
         self.assertIn('RNA–Ligand Pose Quality Prediction', readme)
         self.assertIn('ADMET Prediction', readme)
         self.assertIn('The Build Lab', readme)
-        self.assertIn('**Engineering** · GitHub, Linux, Swift', readme)
+        self.assertIn('| **Engineering** |', readme)
         self.assertNotIn('assets/generated/', readme)
         self.assertNotIn('Docker', readme)
 
@@ -52,6 +52,10 @@ class TextRenderTests(unittest.TestCase):
         self.assertIn('## The Build Lab', readme)
         self.assertIn('## Tools & Technologies', readme)
         self.assertIn('## Recent Activity', readme)
+        self.assertIn('## GitHub Stats', readme)
+        self.assertIn('PREVIOUS BUILD', readme)
+        self.assertIn('Build Collection', readme)
+        self.assertIn('img.shields.io/badge/', readme)
         self.assertNotIn('## Research Interests', readme)
         self.assertNotIn('## Publications', readme)  # Hide empty section
         self.assertNotIn('assets/generated/', readme)

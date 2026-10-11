@@ -1,4 +1,5 @@
 import json
+from urllib.parse import quote
 import re
 from html import escape
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
@@ -36,21 +37,35 @@ def main():
         latest_by_repo.setdefault(event['repo'], event)
     activity = list(latest_by_repo.values())
     stack_groups = load_data('tech_stack.yaml')['groups']
-    # Compact display: keep every tool, but avoid five large repeated tables.
-    display_stack = [
-        {'name': 'AI / Data', 'technologies': list(dict.fromkeys(
-            tool for group in stack_groups if group['name'] in ('Deep Learning', 'Data Science')
-            for tool in group['technologies']))},
-        {'name': 'Molecular', 'technologies': list(dict.fromkeys(
-            tool for group in stack_groups if group['name'] in ('Molecular Modeling', 'Molecular Property Prediction')
-            for tool in group['technologies']))},
-        {'name': 'Engineering', 'technologies': next(
-            g['technologies'] for g in stack_groups if g['name'] == 'Engineering')},
+    indexed = {g['name']: g['technologies'] for g in stack_groups}
+    badge_definitions = [
+        ('Languages', [('Python', '3776AB', 'python'), ('Swift', 'F05138', 'swift')]),
+        ('Deep Learning', [('PyTorch', 'EE4C2C', 'pytorch'), ('PyTorch Geometric', '654C9B', None)]),
+        ('Molecular', [('RDKit', '127D80', None), ('Biopython', '31866C', None), ('Cheminformatics', '32689E', None)]),
+        ('Data Science', [('NumPy', '326A93', 'numpy'), ('Pandas', '574B8C', 'pandas'), ('scikit-learn', 'DB8A24', 'scikitlearn')]),
+        ('Engineering', [('GitHub', '30343B', 'github'), ('Linux', '8F7422', 'linux')]),
     ]
+    badge_stack = []
+    allowed = {t for group in indexed.values() for t in group}
+    for category, items in badge_definitions:
+        badges = []
+        for label, color, logo in items:
+            if label not in allowed:
+                continue
+            url = f'https://img.shields.io/badge/{quote(label, safe="")}-{color}?style=for-the-badge'
+            if logo:
+                url += f'&logo={logo}&logoColor=white'
+            badges.append({'label': label, 'url': url})
+        badge_stack.append({'name': category, 'badges': badges})
+    stats_path = DATA / 'github_stats.json'
+    stats = json.loads(stats_path.read_text(encoding='utf-8')) if stats_path.exists() else None
     output = env.get_template('README.template.md').render(
         profile=load_data('profile.yaml'), projects=projects,
         latest_build=featured, archive_builds=archive,
-        display_stack=display_stack,
+        badge_stack=badge_stack,
+        previous_build=archive[0] if archive else None,
+        build_collection_url="https://github.com/gn1793?tab=repositories",
+        stats=stats,
         publications=[p for p in load_data('publications.yaml')['publications'] if p.get('visible', False)],
         activity=activity)
     (ROOT / 'README.md').write_text(output.rstrip() + '\n', encoding='utf-8')

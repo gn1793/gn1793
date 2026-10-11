@@ -1,94 +1,86 @@
 <!-- Generated file. Edit README.template.md and data/*.yaml instead. -->
 <p align="center"><img src="assets/hero.png" width="100%" alt="Molecular discovery scientific hero" /></p>
-
 <h1 align="center">{{ profile.headline | e }}</h1>
 <p align="center"><strong>{{ profile.tagline | e }}</strong></p>
 <p align="center">Building AI models to understand molecular interactions and predict molecular properties.</p>
 <p align="center">{% for interest in profile.interests %}<code>{{ interest.title | e }}</code>{% if not loop.last %} &nbsp;·&nbsp; {% endif %}{% endfor %}</p>
 
 ---
-
 ## Featured Research
 
-{% for project in projects %}> **{{ '%02d' | format(loop.index) }} / {{ project.title | md_text }}**
->
-> {{ project.description | md_text }}
->
-> {% for keyword in project.keywords %}`{{ keyword | md_code }}`{% if not loop.last %} · {% endif %}{% endfor %}{% if project.repository %}
->
-> [View repository →](https://github.com/{{ project.repository }}){% endif %}{{ '\n\n' }}
+<table width="100%">
+<tr>
+{% for project in projects %}
+<td width="50%" valign="top">
+<sub>{{ '%02d' | format(loop.index) }} / {% if loop.index == 1 %}STRUCTURE-BASED DRUG DISCOVERY{% else %}MOLECULAR PROPERTY PREDICTION{% endif %}</sub>
+<h3>{{ project.title | e }}</h3>
+<p>{{ project.description | e }}</p>
+<p>{% for keyword in project.keywords %}<code>{{ keyword | e }}</code> {% endfor %}</p>
+<p><sub>Status: {{ project.status | e }}</sub></p>
+{% if project.repository %}<p><a href="https://github.com/{{ project.repository | e }}">View repository ↗</a></p>{% endif %}
+</td>
+{% if loop.index is even and not loop.last %}</tr><tr>{% endif %}
 {% endfor %}
----
+</tr>
+</table>
 
+---
 ## The Build Lab
 
 *Ideas → Working Software*
 
 <table width="100%">
-{% if latest_build %}<tr><td width="100%" align="left">
-<strong>01 / LATEST BUILD</strong>
-<br/><br/>
-<strong><a href="https://github.com/{{ latest_build.repository }}">{{ latest_build.title | e }}</a></strong>
-<br/>
-{{ latest_build.description | e }}
-<br/><br/>
-{% for tech in latest_build.technologies %}<code>{{ tech | e }}</code>{% if not loop.last %} &nbsp;·&nbsp; {% endif %}{% endfor %}
-<br/><br/>
-<a href="https://github.com/{{ latest_build.repository }}">View repository ↗</a>
-</td></tr>
-{% endif %}{% if previous_build %}<tr><td width="100%" align="left">
-<strong>02 / PREVIOUS BUILD</strong>
-<br/><br/>
-<strong><a href="https://github.com/{{ previous_build.repository }}">{{ previous_build.title | e }}</a></strong>
-<br/>
-{{ previous_build.description | e }}
-<br/><br/>
-{% for tech in previous_build.technologies %}<code>{{ tech | e }}</code>{% if not loop.last %} &nbsp;·&nbsp; {% endif %}{% endfor %}
-<br/><br/>
-<a href="https://github.com/{{ previous_build.repository }}">View repository ↗</a>
-</td></tr>
-{% endif %}<tr><td width="100%" align="left">
-<strong>03 / <a href="{{ build_collection_url }}">Build Collection ↗</a></strong>
-<br/><br/>
-Explore experiments, applications, and developer tools.
-</td></tr>
+<tr>
+{% if latest_build %}
+<td width="50%" valign="top">
+<sub>01 / FEATURED PROJECT</sub>
+<h3><a href="https://github.com/{{ latest_build.repository | e }}">{{ latest_build.title | e }}</a></h3>
+<p>{{ latest_build.description | e }}</p>
+<p>{% for tech in latest_build.technologies %}<code>{{ tech | e }}</code> {% endfor %}</p>
+<p><a href="https://github.com/{{ latest_build.repository | e }}">View repository ↗</a></p>
+</td>
+{% endif %}
+{% if previous_build %}
+<td width="50%" valign="top">
+<sub>02 / DEVELOPER UTILITY</sub>
+<h3><a href="https://github.com/{{ previous_build.repository | e }}">{{ previous_build.title | e }}</a></h3>
+<p>{{ previous_build.description | e }}</p>
+<p>{% for tech in previous_build.technologies %}<code>{{ tech | e }}</code> {% endfor %}</p>
+<p><a href="https://github.com/{{ previous_build.repository | e }}">View repository ↗</a></p>
+</td>
+{% endif %}
+</tr>
 </table>
+<p align="right"><a href="{{ build_collection_url | e }}">Explore All Projects →</a></p>
 
 ---
-
 ## Tools & Technologies
 
 | Category | Technologies |
 | :--- | :--- |
-{% for group in badge_stack %}| **{{ group.name | md_cell }}** | {% for badge in group.badges %}![{{ badge.label | md_text }}]({{ badge.url }}){% if not loop.last %} {% endif %}{% endfor %} |
+{% for group in badge_stack %}| **{{ group.name | md_cell }}** | {% for badge in group.badges %}`{{ badge.label | md_code }}`{% if not loop.last %} · {% endif %}{% endfor %} |
 {% endfor %}
----
 
+---
 ## GitHub Stats
 
 <p align="center">
   <img src="assets/github-stats.svg" alt="GitHub contribution stats for gn1793, automatically refreshed" width="760" />
 </p>
 
-
 ---
-
 ## Recent Activity
 
 *Latest public updates across tracked projects*
 
-{% if activity %}{% for event in activity %}> **{{ '%02d' | format(loop.index) }} / [{{ event.repo.split('/')[-1] | md_text }}](https://github.com/{{ event.repo }})**
->
-> {{ event.message | md_text }}
->
-> `{{ event.date | md_code }}` &nbsp;·&nbsp; [View commit ↗]({{ event.url }})
-
-{% endfor %}{% else %}No verified public commits available yet.
-
+{% if activity %}<table width="100%">
+<tr><th align="left">Repository</th><th align="left">Update</th><th align="right">Date</th></tr>
+{% for event in activity %}<tr><td><a href="https://github.com/{{ event.repo | e }}">{{ event.repo.split('/')[-1] | e }}</a></td><td><a href="{{ event.url | e }}">{{ event.message | e }} ↗</a></td><td align="right"><code>{{ event.date | e }}</code></td></tr>
+{% endfor %}</table>
+{% else %}No verified public commits available yet.
 {% endif %}
 {% if publications %}
 ---
-
 ## Publications
 
 {% for paper in publications %}- **{{ paper.title | md_text }}** ({{ paper.year }}) — {{ paper.venue | md_text }}{% if paper.doi %} · [DOI](https://doi.org/{{ paper.doi }}){% endif %}{% if paper.arxiv %} · [arXiv](https://arxiv.org/abs/{{ paper.arxiv }}){% endif %}

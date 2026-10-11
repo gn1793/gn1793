@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="231" viewBox="0 0 400 231" role="img" aria-labelledby="title desc">
+<title id="title">AI Usage System Monitor</title><desc id="desc">01 / FEATURED PROJECT. AI Usage System Monitor. A macOS application for monitoring AI usage and system resources.. Swift, macOS. View repository ↗</desc>
+<rect x="4" y="1" width="392" height="229" rx="16" fill="#0D1520" stroke="#354252"/>
+<g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">
+<text x="24" y="30" font-size="11" font-weight="400" fill="#879CAF">01 / FEATURED PROJECT</text>
+<text x="24" y="60" font-size="20" font-weight="600" fill="#F3F6FA">AI Usage System Monitor</text>
+<text x="24" y="95" font-size="14" font-weight="400" fill="#BDC9D8">A macOS application for monitoring AI usage</text>
+<text x="24" y="116" font-size="14" font-weight="400" fill="#BDC9D8">and system resources.</text>
+<text x="24" y="177" font-size="13" font-weight="400" fill="#A8B9CD">Swift · macOS</text>
+<text x="24" y="207" font-size="14" font-weight="400" fill="#75DEC8">View repository ↗</text>
+</g></svg>

@@ -4,6 +4,7 @@ import re
 from html import escape
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 from common import ROOT, DATA, load_data, visible_items
+from render_cards import render_cards
 
 
 def md_text(value):
@@ -58,8 +59,9 @@ def main():
         badge_stack.append({'name': category, 'badges': badges})
     stats_path = DATA / 'github_stats.json'
     stats = json.loads(stats_path.read_text(encoding='utf-8')) if stats_path.exists() else None
+    cards = render_cards(projects, [featured, archive[0] if archive else None], badge_stack, activity)
     output = env.get_template('README.template.md').render(
-        profile=load_data('profile.yaml'), projects=projects,
+        profile=load_data('profile.yaml'), projects=projects, cards=cards,
         latest_build=featured, archive_builds=archive,
         badge_stack=badge_stack,
         previous_build=archive[0] if archive else None,

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="297" viewBox="0 0 400 297" role="img" aria-labelledby="title desc">
+<title id="title">ADMET Prediction</title><desc id="desc">02 / RESEARCH PROJECT. ADMET Prediction. Developing machine learning approaches for predicting absorption, distribution, metabolism, excretion, and toxicity properties of small molecules.. ADMET, Cheminformatics, Property Prediction. Status: In Progress</desc>
+<rect x="4" y="1" width="392" height="295" rx="16" fill="#0D1520" stroke="#354252"/>
+<g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">
+<text x="24" y="30" font-size="11" font-weight="400" fill="#879CAF">02 / RESEARCH PROJECT</text>
+<text x="24" y="60" font-size="20" font-weight="600" fill="#F3F6FA">ADMET Prediction</text>
+<text x="24" y="95" font-size="14" font-weight="400" fill="#BDC9D8">Developing machine learning approaches for</text>
+<text x="24" y="116" font-size="14" font-weight="400" fill="#BDC9D8">predicting absorption, distribution,</text>
+<text x="24" y="137" font-size="14" font-weight="400" fill="#BDC9D8">metabolism, excretion, and toxicity</text>
+<text x="24" y="158" font-size="14" font-weight="400" fill="#BDC9D8">properties of small molecules.</text>
+<text x="24" y="223" font-size="13" font-weight="400" fill="#A8B9CD">ADMET · Cheminformatics · Property</text>
+<text x="24" y="243" font-size="13" font-weight="400" fill="#A8B9CD">Prediction</text>
+<text x="24" y="273" font-size="14" font-weight="400" fill="#75DEC8">Status: In Progress</text>
+</g></svg>

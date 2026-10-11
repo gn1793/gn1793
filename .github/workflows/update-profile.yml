@@ -51,12 +51,12 @@ jobs:
         run: python scripts/build_readme.py
       - name: Commit generated profile only when modified
         run: |
-          if git diff --quiet -- README.md assets/github-stats.svg; then
+          git add README.md assets/github-stats.svg assets/cards/
+          if git diff --cached --quiet; then
             echo 'README unchanged'
             exit 0
           fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add README.md assets/github-stats.svg
           git commit -m 'docs: refresh profile [skip ci]'
           git push

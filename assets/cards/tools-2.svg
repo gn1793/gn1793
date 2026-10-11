@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="85" viewBox="0 0 400 85" role="img" aria-labelledby="title desc">
+<title id="title">Deep Learning</title><desc id="desc">Deep Learning. PyTorch, PyTorch Geometric</desc>
+<rect x="4" y="1" width="392" height="83" rx="16" fill="#0D1520" stroke="#354252"/>
+<g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">
+<text x="24" y="30" font-size="20" font-weight="600" fill="#F3F6FA">Deep Learning</text>
+<text x="24" y="61" font-size="13" font-weight="400" fill="#A8B9CD">PyTorch · PyTorch Geometric</text>
+</g></svg>

@@ -32,7 +32,7 @@ if __name__ == '__main__':
 
 
 class TextRenderTests(unittest.TestCase):
-    def test_readme_is_text_first(self):
+    def test_readme_has_accessible_card_text(self):
         from build_readme import main
         main()
         readme = (ROOT / 'README.md').read_text(encoding='utf-8')
@@ -40,7 +40,7 @@ class TextRenderTests(unittest.TestCase):
         self.assertIn('RNA–Ligand Pose Quality Prediction', readme)
         self.assertIn('ADMET Prediction', readme)
         self.assertIn('The Build Lab', readme)
-        self.assertIn('<strong>Engineering</strong>', readme)
+        self.assertIn('Engineering', readme)
         self.assertNotIn('assets/generated/', readme)
         self.assertNotIn('Docker', readme)
 
@@ -53,15 +53,16 @@ class TextRenderTests(unittest.TestCase):
         self.assertIn('## Tools & Technologies', readme)
         self.assertIn('## Recent Activity', readme)
         self.assertIn('## GitHub Stats', readme)
-        self.assertIn('<table width="100%">', readme)
-        self.assertIn('<sub>01 / FEATURED PROJECT</sub>', readme)
-        self.assertIn('<sub>02 / DEVELOPER UTILITY</sub>', readme)
+        self.assertNotIn('<table', readme)
+        self.assertIn('width="100%"', readme)
+        self.assertIn('01 / FEATURED PROJECT', readme)
+        self.assertIn('02 / DEVELOPER UTILITY', readme)
         self.assertIn('Explore All Projects →', readme)
         self.assertIn('assets/github-stats.svg', readme)
         self.assertNotIn('Data Science', readme)
         self.assertIn('## Recent Activity', readme)
         self.assertNotIn('Public account data and available contribution activity', readme)
-        self.assertIn('<code>PyTorch</code>', readme)
+        self.assertIn('PyTorch', readme)
         self.assertNotIn('## Research Interests', readme)
         self.assertNotIn('## Publications', readme)  # Hide empty section
         self.assertNotIn('assets/generated/', readme)
@@ -96,3 +97,30 @@ class StatsRenderTests(unittest.TestCase):
     def test_stack_removes_data_science(self):
         names = [g['name'] for g in load_data('tech_stack.yaml')['groups']]
         self.assertNotIn('Data Science', names)
+
+
+class RoundedCardTests(unittest.TestCase):
+    def test_generated_cards_preserve_content_and_links(self):
+        import re
+        import xml.etree.ElementTree as ET
+        from build_readme import main
+        main()
+        readme = (ROOT / 'README.md').read_text()
+        paths = re.findall(r'src="(assets/cards/[^"]+)"', readme)
+        self.assertGreaterEqual(len(paths), 8)
+        ns = {'svg': 'http://www.w3.org/2000/svg'}
+        for path in paths:
+            root = ET.parse(ROOT / path).getroot()
+            self.assertGreater(float(root.find('svg:rect', ns).get('rx')), 0)
+            self.assertTrue(root.find('svg:desc', ns).text)
+            height = float(root.get('height'))
+            for node in root.findall('.//svg:text', ns):
+                self.assertLess(float(node.get('y')), height - 10)
+        self.assertIn('View repository', readme)
+        self.assertIn('width="50%"', readme)
+
+    def test_long_card_content_expands_without_overlapping_footer(self):
+        from render_cards import layout
+        short = layout({'title': 'Short', 'body': 'Small', 'footer': 'View commit'})
+        long = layout({'title': 'Title ' * 20, 'body': 'Description ' * 100, 'footer': 'View commit'})
+        self.assertGreater(long[-1], short[-1])

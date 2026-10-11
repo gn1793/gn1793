@@ -37,7 +37,7 @@ def main():
     svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="800" height="460" viewBox="0 0 800 460" role="img" aria-labelledby="t d">
 <title id="t">GitHub Stats for gn1793</title>
 <desc id="d">Public stars and GitHub contributions for the last 12 months. The ring shows progress toward a reference milestone of 100 contributions, not a GitHub rating.</desc>
-<rect x="1" y="1" width="798" height="458" rx="20" fill="#0D1520" stroke="#354252" stroke-width="2"/>
+<rect x="4" y="1" width="792" height="458" rx="16" fill="#0D1520" stroke="#354252" stroke-width="1"/>
 <text x="42" y="58" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="30" font-weight="700" fill="#F3F6FA">GitHub Stats</text>
 <path d="M43 77 H757" stroke="#273748"/>
 <g font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif">{''.join(dashboard_rows)}

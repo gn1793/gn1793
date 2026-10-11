@@ -14,13 +14,19 @@
 <sub>01 / STRUCTURE-BASED DRUG DISCOVERY</sub>
 <h3>RNA–Ligand Pose Quality Prediction</h3>
 <p>Developing geometric deep learning models to assess RNA–ligand docking pose quality and improve pose reranking.</p>
-<p><code>RNA–Ligand</code> <code>RMSD Prediction</code> <code>Geometric DL</code> </p>
-<p><sub>Status: In Progress</sub></p>
 </td>
 <td width="50%" valign="top">
 <sub>02 / MOLECULAR PROPERTY PREDICTION</sub>
 <h3>ADMET Prediction</h3>
 <p>Developing machine learning approaches for predicting absorption, distribution, metabolism, excretion, and toxicity properties of small molecules.</p>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="bottom">
+<p><code>RNA–Ligand</code> <code>RMSD Prediction</code> <code>Geometric DL</code> </p>
+<p><sub>Status: In Progress</sub></p>
+</td>
+<td width="50%" valign="bottom">
 <p><code>ADMET</code> <code>Cheminformatics</code> <code>Property Prediction</code> </p>
 <p><sub>Status: In Progress</sub></p>
 </td>

@@ -38,6 +38,7 @@
 <sub>01 / FEATURED PROJECT</sub>
 <h3><a href="https://github.com/{{ latest_build.repository | e }}">{{ latest_build.title | e }}</a></h3>
 <p>{{ latest_build.description | e }}</p>
+<br>
 <p>{% for tech in latest_build.technologies %}<code>{{ tech | e }}</code> {% endfor %}</p>
 <p><a href="https://github.com/{{ latest_build.repository | e }}">View repository ↗</a></p>
 </td>
@@ -47,6 +48,7 @@
 <sub>02 / DEVELOPER UTILITY</sub>
 <h3><a href="https://github.com/{{ previous_build.repository | e }}">{{ previous_build.title | e }}</a></h3>
 <p>{{ previous_build.description | e }}</p>
+<br>
 <p>{% for tech in previous_build.technologies %}<code>{{ tech | e }}</code> {% endfor %}</p>
 <p><a href="https://github.com/{{ previous_build.repository | e }}">View repository ↗</a></p>
 </td>
@@ -61,38 +63,30 @@
 <table width="100%">
 <tr>
 <td width="50%" valign="top">
-<br>
 <sub>01 / TOOLKIT</sub>
 <h3>Languages</h3>
 <p><em>Core languages for research workflows and application development.</em></p>
 <p><code>Python</code> <code>Swift</code></p>
-<br>
 </td>
 <td width="50%" valign="top">
-<br>
 <sub>02 / TOOLKIT</sub>
 <h3>Deep Learning</h3>
 <p><em>Frameworks for geometric learning and model development.</em></p>
 <p><code>PyTorch</code> <code>PyTorch Geometric</code></p>
-<br>
 </td>
 </tr>
 <tr>
 <td width="50%" valign="top">
-<br>
 <sub>03 / TOOLKIT</sub>
 <h3>Molecular</h3>
 <p><em>Libraries for cheminformatics and molecular structure handling.</em></p>
 <p><code>RDKit</code> <code>Biopython</code> <code>Cheminformatics</code></p>
-<br>
 </td>
 <td width="50%" valign="top">
-<br>
 <sub>04 / TOOLKIT</sub>
 <h3>Engineering</h3>
 <p><em>Infrastructure and tooling for reproducible development.</em></p>
 <p><code>GitHub</code> <code>Linux</code></p>
-<br>
 </td>
 </tr>
 </table>
@@ -113,10 +107,11 @@
 <tr>
 {% for event in activity[:2] %}
 <td width="50%" valign="top">
-<br>
 <sub>{{ '%02d' | format(loop.index) }} / {% if loop.first %}LATEST UPDATE{% else %}RECENT UPDATE{% endif %} &nbsp;·&nbsp; {{ event.date | e }}</sub>
 <h3><a href="https://github.com/{{ event.repo | e }}">{{ event.repo.split('/')[-1] | e }}</a></h3>
 <p>{{ event.message | e }}</p>
+<br>
+<br>
 <p><a href="{{ event.url | e }}">View commit ↗</a></p>
 <br>
 </td>

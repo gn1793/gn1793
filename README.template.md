@@ -16,34 +16,33 @@
 >
 > {% for keyword in project.keywords %}`{{ keyword | md_code }}`{% if not loop.last %} · {% endif %}{% endfor %}{% if project.repository %}
 >
-> [View repository →](https://github.com/{{ project.repository }}){% endif %}
-
-{% endfor %}---
+> [View repository →](https://github.com/{{ project.repository }}){% endif %}{{ '\n\n' }}
+{% endfor %}
+---
 
 ## The Build Lab
 
 *Ideas → Working Software*
 
-<table width="100%">
-{% if latest_build %}  <tr><td width="100%">
-    <p><strong>● LATEST BUILD</strong></p>
-    <h3><a href="https://github.com/{{ latest_build.repository | e }}">{{ latest_build.title | e }} ↗</a></h3>
-    <p>{{ latest_build.description | e }}</p>
-    <p>{% for tech in latest_build.technologies %}<code>{{ tech | e }}</code>{% if not loop.last %} &nbsp; {% endif %}{% endfor %}</p>
-    <p><a href="https://github.com/{{ latest_build.repository | e }}"><strong>View Latest Build ↗</strong></a></p>
-  </td></tr>
-{% endif %}{% if previous_build %}  <tr><td width="100%">
-    <p><strong>PREVIOUS BUILD</strong></p>
-    <h3><a href="https://github.com/{{ previous_build.repository | e }}">{{ previous_build.title | e }} ↗</a></h3>
-    <p>{{ previous_build.description | e }}</p>
-    <p>{% for tech in previous_build.technologies %}<code>{{ tech | e }}</code>{% if not loop.last %} &nbsp; {% endif %}{% endfor %}</p>
-  </td></tr>
-{% endif %}  <tr><td width="100%">
-    <h3><a href="{{ build_collection_url | e }}">Build Collection →</a></h3>
-    <p>Explore experiments, applications, and developer tools.</p>
-    <p><a href="{{ build_collection_url | e }}">View all builds ↗</a></p>
-  </td></tr>
-</table>
+{% if latest_build %}> **01 / LATEST BUILD — [{{ latest_build.title | md_text }}](https://github.com/{{ latest_build.repository }})**
+>
+> {{ latest_build.description | md_text }}
+>
+> {% for tech in latest_build.technologies %}`{{ tech | md_code }}`{% if not loop.last %} · {% endif %}{% endfor %}{{ "\n" }}>
+> [View Latest Build ↗](https://github.com/{{ latest_build.repository }})
+
+{% endif %}{% if previous_build %}> **02 / PREVIOUS BUILD — [{{ previous_build.title | md_text }}](https://github.com/{{ previous_build.repository }})**
+>
+> {{ previous_build.description | md_text }}
+>
+> {% for tech in previous_build.technologies %}`{{ tech | md_code }}`{% if not loop.last %} · {% endif %}{% endfor %}{{ "\n" }}>
+> [View Previous Build ↗](https://github.com/{{ previous_build.repository }})
+
+{% endif %}> **03 / [Build Collection →]({{ build_collection_url }})**
+>
+> Explore experiments, applications, and developer tools.
+>
+> [View all builds ↗]({{ build_collection_url }})
 
 ---
 
@@ -57,15 +56,11 @@
 
 ## GitHub Stats
 
-| Metric | Public GitHub data |
-| :--- | ---: |
-| ⭐ Public repositories | **{{ stats.public_repos if stats else '—' }}** |
-| ⭐ Stars received | **{{ stats.stars_received if stats else '—' }}** |
-| Followers | **{{ stats.followers if stats else '—' }}** |
-| Following | **{{ stats.following if stats else '—' }}** |
-{% if not stats %}<sub>Stats pending: run the GitHub Actions “Update Profile README” workflow or `python3 scripts/fetch_stats.py` to populate verified public counts.</sub>
-{% else %}<sub>Public GitHub API data · refreshed by GitHub Actions. Private activity is not included.</sub>
-{% endif %}
+<p align="center">
+  <img src="assets/github-stats.svg" alt="GitHub contribution stats for gn1793, automatically refreshed" width="760" />
+</p>
+
+<sub>Public account data and available contribution activity (last 12 months). Automatically refreshed by GitHub Actions; statistics may exclude private activity.</sub>
 
 ---
 

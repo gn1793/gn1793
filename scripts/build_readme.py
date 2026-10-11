@@ -42,7 +42,6 @@ def main():
         ('Languages', [('Python', '3776AB', 'python'), ('Swift', 'F05138', 'swift')]),
         ('Deep Learning', [('PyTorch', 'EE4C2C', 'pytorch'), ('PyTorch Geometric', '654C9B', None)]),
         ('Molecular', [('RDKit', '127D80', None), ('Biopython', '31866C', None), ('Cheminformatics', '32689E', None)]),
-        ('Data Science', [('NumPy', '326A93', 'numpy'), ('Pandas', '574B8C', 'pandas'), ('scikit-learn', 'DB8A24', 'scikitlearn')]),
         ('Engineering', [('GitHub', '30343B', 'github'), ('Linux', '8F7422', 'linux')]),
     ]
     badge_stack = []

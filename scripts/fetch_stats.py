@@ -1,7 +1,7 @@
-"""Fetch reproducible, public-account GitHub metrics only.
+"""Refresh public profile metrics; GraphQL contributions need GH_TOKEN.
 
-Never infer a contribution grade or pretend public counts cover private activity.
-On API failure, exit without replacing the cache or README.
+Errors to the contribution endpoint leave those metrics unreported, never faked.
+A failure of the essential REST endpoints aborts without overwriting the cache.
 """
 import json
 import os
@@ -10,12 +10,23 @@ from common import DATA
 
 API = 'https://api.github.com'
 USERNAME = 'gn1793'
+QUERY = '''query($login:String!) {
+ user(login:$login) {
+  contributionsCollection {
+   totalCommitContributions
+   totalPullRequestContributions
+   totalIssueContributions
+   contributionCalendar { totalContributions }
+  }
+ }
+}'''
 
 
 def main():
+    token = os.environ.get('GH_TOKEN')
     headers = {'Accept': 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28'}
-    if os.environ.get('GH_TOKEN'):
-        headers['Authorization'] = f"Bearer {os.environ['GH_TOKEN']}"
+    if token:
+        headers['Authorization'] = f'Bearer {token}'
     with requests.Session() as session:
         session.headers.update(headers)
         response = session.get(f'{API}/users/{USERNAME}', timeout=20)
@@ -32,13 +43,31 @@ def main():
             if len(repos) < 100:
                 break
             page += 1
-    payload = dict(public_repos=int(user['public_repos']), stars_received=stars,
-                   followers=int(user['followers']), following=int(user['following']))
+        payload = dict(public_repos=int(user['public_repos']), stars_received=int(stars),
+                       followers=int(user['followers']), following=int(user['following']))
+        if token:
+            try:
+                gql = session.post(f'{API}/graphql', json={'query': QUERY, 'variables': {'login': USERNAME}}, timeout=20)
+                gql.raise_for_status()
+                body = gql.json()
+                if body.get('errors'):
+                    raise ValueError(body['errors'])
+                coll = body['data']['user']['contributionsCollection']
+                payload.update({
+                    'commit_contributions_12m': int(coll['totalCommitContributions']),
+                    'pr_contributions_12m': int(coll['totalPullRequestContributions']),
+                    'issue_contributions_12m': int(coll['totalIssueContributions']),
+                    'total_contributions_12m': int(coll['contributionCalendar']['totalContributions']),
+                })
+            except (requests.RequestException, KeyError, TypeError, ValueError) as exc:
+                print(f'Contribution counts unavailable; showing N/A: {exc}')
+        else:
+            print('GH_TOKEN absent: contribution metrics will show N/A.')
     dest = DATA / 'github_stats.json'
-    tmp = dest.with_suffix('.json.tmp')
-    tmp.write_text(json.dumps(payload, indent=2) + '\n', encoding='utf-8')
-    tmp.replace(dest)
-    print(f"Public GitHub stats updated: {payload}")
+    temp = dest.with_suffix('.json.tmp')
+    temp.write_text(json.dumps(payload, indent=2) + '\n', encoding='utf-8')
+    temp.replace(dest)
+    print(f'Public GitHub stats updated: {payload}')
 
 
 if __name__ == '__main__':

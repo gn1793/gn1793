@@ -54,10 +54,12 @@ class TextRenderTests(unittest.TestCase):
         self.assertIn('## Recent Activity', readme)
         self.assertIn('## GitHub Stats', readme)
         self.assertIn('PREVIOUS BUILD', readme)
-        self.assertIn('<table width="100%">', readme)
-        self.assertEqual(readme.count('<table width="100%">'), 1)
-        self.assertIn('| ⭐ Public repositories |', readme)
-        self.assertIn('| ⭐ Stars received |', readme)
+        self.assertNotIn('<table width="100%">', readme)
+        self.assertIn('> **01 / LATEST BUILD', readme)
+        self.assertIn('> **02 / PREVIOUS BUILD', readme)
+        self.assertIn('> **03 / [Build Collection', readme)
+        self.assertIn('assets/github-stats.svg', readme)
+        self.assertNotIn('Data Science', readme)
         self.assertIn('Build Collection', readme)
         self.assertIn('img.shields.io/badge/', readme)
         self.assertNotIn('## Research Interests', readme)
@@ -76,3 +78,19 @@ class TextRenderTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class StatsRenderTests(unittest.TestCase):
+    def test_stats_svg_is_generated_and_well_formed(self):
+        import xml.etree.ElementTree as ET
+        from render_stats import main
+        main()
+        root = ET.parse(ROOT / 'assets' / 'github-stats.svg').getroot()
+        self.assertTrue(root.tag.endswith('svg'))
+        svg = (ROOT / 'assets' / 'github-stats.svg').read_text(encoding='utf-8')
+        self.assertIn('Contributions (12m)', svg)
+        self.assertIn('100-contribution reference', svg)
+
+    def test_stack_removes_data_science(self):
+        names = [g['name'] for g in load_data('tech_stack.yaml')['groups']]
+        self.assertNotIn('Data Science', names)

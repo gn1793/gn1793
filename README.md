@@ -61,12 +61,40 @@
 ---
 ## Tools & Technologies
 
-| Category | Technologies |
-| :--- | :--- |
-| **Languages** | `Python` · `Swift` |
-| **Deep Learning** | `PyTorch` · `PyTorch Geometric` |
-| **Molecular** | `RDKit` · `Biopython` · `Cheminformatics` |
-| **Engineering** | `GitHub` · `Linux` |
+<table width="100%">
+<tr>
+<td width="50%" valign="top">
+<br>
+<sub>01 / TOOLKIT</sub>
+<h3>Languages</h3>
+<p><code>Python</code> <code>Swift</code> </p>
+<br>
+</td>
+<td width="50%" valign="top">
+<br>
+<sub>02 / TOOLKIT</sub>
+<h3>Deep Learning</h3>
+<p><code>PyTorch</code> <code>PyTorch Geometric</code> </p>
+<br>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+<br>
+<sub>03 / TOOLKIT</sub>
+<h3>Molecular</h3>
+<p><code>RDKit</code> <code>Biopython</code> <code>Cheminformatics</code> </p>
+<br>
+</td>
+<td width="50%" valign="top">
+<br>
+<sub>04 / TOOLKIT</sub>
+<h3>Engineering</h3>
+<p><code>GitHub</code> <code>Linux</code> </p>
+<br>
+</td>
+</tr>
+</table>
 
 ---
 ## GitHub Stats
@@ -81,7 +109,24 @@
 *Latest public updates across tracked projects*
 
 <table width="100%">
-<tr><th align="left">Repository</th><th align="left">Update</th><th align="right">Date</th></tr>
-<tr><td><a href="https://github.com/gn1793/AI-Usage-System-Monitor">AI-Usage-System-Monitor</a></td><td><a href="https://github.com/gn1793/AI-Usage-System-Monitor/commit/1c881634b03da79391da09aae86c08ddfa3c564f">Update README.md ↗</a></td><td align="right"><code>2026-10-11</code></td></tr>
-<tr><td><a href="https://github.com/gn1793/CodeMonitor">CodeMonitor</a></td><td><a href="https://github.com/gn1793/CodeMonitor/commit/6802d30506fbbb3cf147ee01f6c83ffa5d9f58ae">Update schema.py ↗</a></td><td align="right"><code>2025-09-20</code></td></tr>
+<tr>
+<td width="100%" valign="top">
+<br>
+<sub>01 / LATEST UPDATE &nbsp;·&nbsp; 2026-10-11</sub>
+<h3><a href="https://github.com/gn1793/AI-Usage-System-Monitor">AI-Usage-System-Monitor</a></h3>
+<p>Update README.md</p>
+<p><a href="https://github.com/gn1793/AI-Usage-System-Monitor/commit/1c881634b03da79391da09aae86c08ddfa3c564f">View commit ↗</a></p>
+<br>
+</td>
+</tr>
+<tr>
+<td width="100%" valign="top">
+<br>
+<sub>02 / RECENT UPDATE &nbsp;·&nbsp; 2025-09-20</sub>
+<h3><a href="https://github.com/gn1793/CodeMonitor">CodeMonitor</a></h3>
+<p>Update schema.py</p>
+<p><a href="https://github.com/gn1793/CodeMonitor/commit/6802d30506fbbb3cf147ee01f6c83ffa5d9f58ae">View commit ↗</a></p>
+<br>
+</td>
+</tr>
 </table>

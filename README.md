@@ -30,27 +30,33 @@
 
 *Ideas → Working Software*
 
-> **01 / LATEST BUILD — [AI Usage System Monitor](https://github.com/gn1793/AI-Usage-System-Monitor)**
->
-> A macOS application for monitoring AI usage and system resources\.
->
-> `Swift` · `macOS`
->
-> [View Latest Build ↗](https://github.com/gn1793/AI-Usage-System-Monitor)
-
-> **02 / PREVIOUS BUILD — [CodeMonitor](https://github.com/gn1793/CodeMonitor)**
->
-> A utility for monitoring CPU, GPU, and RAM usage\.
->
-> `Python` · `System Monitoring`
->
-> [View Previous Build ↗](https://github.com/gn1793/CodeMonitor)
-
-> **03 / [Build Collection →](https://github.com/gn1793?tab=repositories)**
->
-> Explore experiments, applications, and developer tools.
->
-> [View all builds ↗](https://github.com/gn1793?tab=repositories)
+<table width="100%">
+<tr><td width="100%" align="left">
+<strong>01 / LATEST BUILD</strong>
+<br/><br/>
+<strong><a href="https://github.com/gn1793/AI-Usage-System-Monitor">AI Usage System Monitor</a></strong>
+<br/>
+A macOS application for monitoring AI usage and system resources.
+<br/><br/>
+<code>Swift</code> &nbsp;·&nbsp; <code>macOS</code><br/><br/>
+<a href="https://github.com/gn1793/AI-Usage-System-Monitor">View repository ↗</a>
+</td></tr>
+<tr><td width="100%" align="left">
+<strong>02 / PREVIOUS BUILD</strong>
+<br/><br/>
+<strong><a href="https://github.com/gn1793/CodeMonitor">CodeMonitor</a></strong>
+<br/>
+A utility for monitoring CPU, GPU, and RAM usage.
+<br/><br/>
+<code>Python</code> &nbsp;·&nbsp; <code>System Monitoring</code><br/><br/>
+<a href="https://github.com/gn1793/CodeMonitor">View repository ↗</a>
+</td></tr>
+<tr><td width="100%" align="left">
+<strong>03 / <a href="https://github.com/gn1793?tab=repositories">Build Collection ↗</a></strong>
+<br/><br/>
+Explore experiments, applications, and developer tools.
+</td></tr>
+</table>
 
 ---
 
@@ -70,11 +76,21 @@
   <img src="assets/github-stats.svg" alt="GitHub contribution stats for gn1793, automatically refreshed" width="760" />
 </p>
 
-<sub>Public account data and available contribution activity (last 12 months). Automatically refreshed by GitHub Actions; statistics may exclude private activity.</sub>
 
 ---
 
 ## Recent Activity
 
-- **[AI-Usage-System-Monitor](https://github.com/gn1793/AI-Usage-System-Monitor)** · [Update README\.md](https://github.com/gn1793/AI-Usage-System-Monitor/commit/1c881634b03da79391da09aae86c08ddfa3c564f) <sub>(2026-10-11)</sub>
-- **[CodeMonitor](https://github.com/gn1793/CodeMonitor)** · [Update schema\.py](https://github.com/gn1793/CodeMonitor/commit/6802d30506fbbb3cf147ee01f6c83ffa5d9f58ae) <sub>(2025-09-20)</sub>
+*Latest public updates across tracked projects*
+
+> **01 / [AI-Usage-System-Monitor](https://github.com/gn1793/AI-Usage-System-Monitor)**
+>
+> Update README\.md
+>
+> `2026-10-11` &nbsp;·&nbsp; [View commit ↗](https://github.com/gn1793/AI-Usage-System-Monitor/commit/1c881634b03da79391da09aae86c08ddfa3c564f)
+
+> **02 / [CodeMonitor](https://github.com/gn1793/CodeMonitor)**
+>
+> Update schema\.py
+>
+> `2025-09-20` &nbsp;·&nbsp; [View commit ↗](https://github.com/gn1793/CodeMonitor/commit/6802d30506fbbb3cf147ee01f6c83ffa5d9f58ae)

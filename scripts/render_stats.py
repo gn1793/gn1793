@@ -16,10 +16,10 @@ def main():
     metrics = json.loads(path.read_text(encoding='utf-8')) if path.exists() else {}
     fields = [
         ('Total Stars', metrics.get('stars_received')),
-        ('Commits (12m)', metrics.get('commit_contributions_12m')),
-        ('PRs (12m)', metrics.get('pr_contributions_12m')),
-        ('Issues (12m)', metrics.get('issue_contributions_12m')),
-        ('Contributions (12m)', metrics.get('total_contributions_12m')),
+        ('Commits', metrics.get('commit_contributions_12m')),
+        ('PRs', metrics.get('pr_contributions_12m')),
+        ('Issues', metrics.get('issue_contributions_12m')),
+        ('Contributions', metrics.get('total_contributions_12m')),
     ]
     total = metrics.get('total_contributions_12m')
     valid = isinstance(total, int) and total >= 0
@@ -47,7 +47,7 @@ def main():
 <text x="634" y="239" font-size="14" text-anchor="middle" fill="#A8B9CD">of milestone</text>
 <text x="634" y="332" font-size="16" text-anchor="middle" fill="#B7CAD6">{escape(progress)} contributions</text>
 <text x="634" y="356" font-size="13" text-anchor="middle" fill="#879CAF">100-contribution reference</text>
-<text x="42" y="422" font-size="13" fill="#8FA2B9">Public GitHub data · 12-month window for contributions · refreshed with Actions</text>
+
 </g></svg>'''
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(svg + '\n', encoding='utf-8')

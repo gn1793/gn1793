@@ -24,25 +24,35 @@
 
 *Ideas → Working Software*
 
-{% if latest_build %}> **01 / LATEST BUILD — [{{ latest_build.title | md_text }}](https://github.com/{{ latest_build.repository }})**
->
-> {{ latest_build.description | md_text }}
->
-> {% for tech in latest_build.technologies %}`{{ tech | md_code }}`{% if not loop.last %} · {% endif %}{% endfor %}{{ "\n" }}>
-> [View Latest Build ↗](https://github.com/{{ latest_build.repository }})
-
-{% endif %}{% if previous_build %}> **02 / PREVIOUS BUILD — [{{ previous_build.title | md_text }}](https://github.com/{{ previous_build.repository }})**
->
-> {{ previous_build.description | md_text }}
->
-> {% for tech in previous_build.technologies %}`{{ tech | md_code }}`{% if not loop.last %} · {% endif %}{% endfor %}{{ "\n" }}>
-> [View Previous Build ↗](https://github.com/{{ previous_build.repository }})
-
-{% endif %}> **03 / [Build Collection →]({{ build_collection_url }})**
->
-> Explore experiments, applications, and developer tools.
->
-> [View all builds ↗]({{ build_collection_url }})
+<table width="100%">
+{% if latest_build %}<tr><td width="100%" align="left">
+<strong>01 / LATEST BUILD</strong>
+<br/><br/>
+<strong><a href="https://github.com/{{ latest_build.repository }}">{{ latest_build.title | e }}</a></strong>
+<br/>
+{{ latest_build.description | e }}
+<br/><br/>
+{% for tech in latest_build.technologies %}<code>{{ tech | e }}</code>{% if not loop.last %} &nbsp;·&nbsp; {% endif %}{% endfor %}
+<br/><br/>
+<a href="https://github.com/{{ latest_build.repository }}">View repository ↗</a>
+</td></tr>
+{% endif %}{% if previous_build %}<tr><td width="100%" align="left">
+<strong>02 / PREVIOUS BUILD</strong>
+<br/><br/>
+<strong><a href="https://github.com/{{ previous_build.repository }}">{{ previous_build.title | e }}</a></strong>
+<br/>
+{{ previous_build.description | e }}
+<br/><br/>
+{% for tech in previous_build.technologies %}<code>{{ tech | e }}</code>{% if not loop.last %} &nbsp;·&nbsp; {% endif %}{% endfor %}
+<br/><br/>
+<a href="https://github.com/{{ previous_build.repository }}">View repository ↗</a>
+</td></tr>
+{% endif %}<tr><td width="100%" align="left">
+<strong>03 / <a href="{{ build_collection_url }}">Build Collection ↗</a></strong>
+<br/><br/>
+Explore experiments, applications, and developer tools.
+</td></tr>
+</table>
 
 ---
 
@@ -60,14 +70,21 @@
   <img src="assets/github-stats.svg" alt="GitHub contribution stats for gn1793, automatically refreshed" width="760" />
 </p>
 
-<sub>Public account data and available contribution activity (last 12 months). Automatically refreshed by GitHub Actions; statistics may exclude private activity.</sub>
 
 ---
 
 ## Recent Activity
 
-{% if activity %}{% for event in activity %}- **[{{ event.repo.split('/')[-1] | md_text }}](https://github.com/{{ event.repo }})** · [{{ event.message | md_text }}]({{ event.url }}) <sub>({{ event.date | md_text }})</sub>
-{% endfor %}{% else %}Recent public development updates will appear after the next successful sync.
+*Latest public updates across tracked projects*
+
+{% if activity %}{% for event in activity %}> **{{ '%02d' | format(loop.index) }} / [{{ event.repo.split('/')[-1] | md_text }}](https://github.com/{{ event.repo }})**
+>
+> {{ event.message | md_text }}
+>
+> `{{ event.date | md_code }}` &nbsp;·&nbsp; [View commit ↗]({{ event.url }})
+
+{% endfor %}{% else %}No verified public commits available yet.
+
 {% endif %}
 {% if publications %}
 ---

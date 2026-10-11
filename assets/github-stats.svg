@@ -4,12 +4,12 @@
 <rect x="1" y="1" width="798" height="458" rx="20" fill="#0D1520" stroke="#354252" stroke-width="2"/>
 <text x="42" y="58" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="30" font-weight="700" fill="#F3F6FA">GitHub Stats</text>
 <path d="M43 77 H757" stroke="#273748"/>
-<g font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"><text x="47" y="124" font-size="18" fill="#BDC9D8">Total Stars</text><text x="463" y="124" font-size="20" font-weight="600" text-anchor="end" fill="#75DEC8">0</text><text x="47" y="183" font-size="18" fill="#BDC9D8">Commits (12m)</text><text x="463" y="183" font-size="20" font-weight="600" text-anchor="end" fill="#75DEC8">13</text><text x="47" y="242" font-size="18" fill="#BDC9D8">PRs (12m)</text><text x="463" y="242" font-size="20" font-weight="600" text-anchor="end" fill="#75DEC8">0</text><text x="47" y="301" font-size="18" fill="#BDC9D8">Issues (12m)</text><text x="463" y="301" font-size="20" font-weight="600" text-anchor="end" fill="#75DEC8">0</text><text x="47" y="360" font-size="18" fill="#BDC9D8">Contributions (12m)</text><text x="463" y="360" font-size="20" font-weight="600" text-anchor="end" fill="#75DEC8">21</text>
+<g font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"><text x="47" y="124" font-size="18" fill="#BDC9D8">Total Stars</text><text x="463" y="124" font-size="20" font-weight="600" text-anchor="end" fill="#75DEC8">0</text><text x="47" y="183" font-size="18" fill="#BDC9D8">Commits</text><text x="463" y="183" font-size="20" font-weight="600" text-anchor="end" fill="#75DEC8">N/A</text><text x="47" y="242" font-size="18" fill="#BDC9D8">PRs</text><text x="463" y="242" font-size="20" font-weight="600" text-anchor="end" fill="#75DEC8">N/A</text><text x="47" y="301" font-size="18" fill="#BDC9D8">Issues</text><text x="463" y="301" font-size="20" font-weight="600" text-anchor="end" fill="#75DEC8">N/A</text><text x="47" y="360" font-size="18" fill="#BDC9D8">Contributions</text><text x="463" y="360" font-size="20" font-weight="600" text-anchor="end" fill="#75DEC8">N/A</text>
 <circle cx="634" cy="215" r="69" stroke="#303B4A" stroke-width="13" fill="none"/>
-<circle cx="634" cy="215" r="69" stroke="#72D9CB" stroke-width="13" fill="none" stroke-linecap="round" stroke-dasharray="91.04 433.54" transform="rotate(-90 634 215)"/>
-<text x="634" y="211" font-size="27" font-weight="700" text-anchor="middle" fill="#F3F6FA">21%</text>
+<circle cx="634" cy="215" r="69" stroke="#72D9CB" stroke-width="13" fill="none" stroke-linecap="round" stroke-dasharray="0.00 433.54" transform="rotate(-90 634 215)"/>
+<text x="634" y="211" font-size="27" font-weight="700" text-anchor="middle" fill="#F3F6FA">N/A</text>
 <text x="634" y="239" font-size="14" text-anchor="middle" fill="#A8B9CD">of milestone</text>
-<text x="634" y="332" font-size="16" text-anchor="middle" fill="#B7CAD6">21 / 100 contributions</text>
+<text x="634" y="332" font-size="16" text-anchor="middle" fill="#B7CAD6">Awaiting data contributions</text>
 <text x="634" y="356" font-size="13" text-anchor="middle" fill="#879CAF">100-contribution reference</text>
-<text x="42" y="422" font-size="13" fill="#8FA2B9">Public GitHub data · 12-month window for contributions · refreshed with Actions</text>
+
 </g></svg>

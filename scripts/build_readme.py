@@ -35,7 +35,7 @@ def main():
     latest_by_repo = {}
     for event in activity:
         latest_by_repo.setdefault(event['repo'], event)
-    activity = list(latest_by_repo.values())
+    activity = list(latest_by_repo.values())[:3]
     stack_groups = load_data('tech_stack.yaml')['groups']
     indexed = {g['name']: g['technologies'] for g in stack_groups}
     badge_definitions = [

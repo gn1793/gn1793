@@ -26,25 +26,21 @@
 
 *Ideas → Working Software*
 
-<table>
-  <tr><td>
-    <sub><strong>● LATEST BUILD</strong></sub>
+<table width="100%">
+  <tr><td width="100%">
+    <p><strong>● LATEST BUILD</strong></p>
     <h3><a href="https://github.com/gn1793/AI-Usage-System-Monitor">AI Usage System Monitor ↗</a></h3>
     <p>A macOS application for monitoring AI usage and system resources.</p>
     <p><code>Swift</code> &nbsp; <code>macOS</code></p>
     <p><a href="https://github.com/gn1793/AI-Usage-System-Monitor"><strong>View Latest Build ↗</strong></a></p>
   </td></tr>
-</table>
-<table>
-  <tr><td>
-    <sub><strong>PREVIOUS BUILD</strong></sub>
+  <tr><td width="100%">
+    <p><strong>PREVIOUS BUILD</strong></p>
     <h3><a href="https://github.com/gn1793/CodeMonitor">CodeMonitor ↗</a></h3>
     <p>A utility for monitoring CPU, GPU, and RAM usage.</p>
     <p><code>Python</code> &nbsp; <code>System Monitoring</code></p>
   </td></tr>
-</table>
-<table>
-  <tr><td>
+  <tr><td width="100%">
     <h3><a href="https://github.com/gn1793?tab=repositories">Build Collection →</a></h3>
     <p>Explore experiments, applications, and developer tools.</p>
     <p><a href="https://github.com/gn1793?tab=repositories">View all builds ↗</a></p>
@@ -68,15 +64,14 @@
 
 | Metric | Public GitHub data |
 | :--- | ---: |
-| Public repositories | **13** |
-| Stars received | **0** |
+| ⭐ Public repositories | **13** |
+| ⭐ Stars received | **0** |
 | Followers | **1** |
 | Following | **3** |
-<sub>Counts are based on publicly accessible GitHub data, not an inferred grade or private contributions.</sub>
+<sub>Public GitHub API data · refreshed by GitHub Actions. Private activity is not included.</sub>
 
 ---
 
 ## Recent Activity
 
-- **[AI-Usage-System-Monitor](https://github.com/gn1793/AI-Usage-System-Monitor)** · [Update README\.md](https://github.com/gn1793/AI-Usage-System-Monitor/commit/1c881634b03da79391da09aae86c08ddfa3c564f) <sub>(2026-10-11)</sub>
-- **[CodeMonitor](https://github.com/gn1793/CodeMonitor)** · [Update schema\.py](https://github.com/gn1793/CodeMonitor/commit/6802d30506fbbb3cf147ee01f6c83ffa5d9f58ae) <sub>(2025-09-20)</sub>
+Recent public development updates will appear after the next successful sync.

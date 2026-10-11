@@ -38,7 +38,7 @@ def main():
     tmp = dest.with_suffix('.json.tmp')
     tmp.write_text(json.dumps(payload, indent=2) + '\n', encoding='utf-8')
     tmp.replace(dest)
-    print('Public GitHub stats updated.')
+    print(f"Public GitHub stats updated: {payload}")
 
 
 if __name__ == '__main__':

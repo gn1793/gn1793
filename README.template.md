@@ -24,27 +24,21 @@
 
 *Ideas → Working Software*
 
-{% if latest_build %}<table>
-  <tr><td>
-    <sub><strong>● LATEST BUILD</strong></sub>
+<table width="100%">
+{% if latest_build %}  <tr><td width="100%">
+    <p><strong>● LATEST BUILD</strong></p>
     <h3><a href="https://github.com/{{ latest_build.repository | e }}">{{ latest_build.title | e }} ↗</a></h3>
     <p>{{ latest_build.description | e }}</p>
     <p>{% for tech in latest_build.technologies %}<code>{{ tech | e }}</code>{% if not loop.last %} &nbsp; {% endif %}{% endfor %}</p>
     <p><a href="https://github.com/{{ latest_build.repository | e }}"><strong>View Latest Build ↗</strong></a></p>
   </td></tr>
-</table>
-{% endif %}
-{% if previous_build %}<table>
-  <tr><td>
-    <sub><strong>PREVIOUS BUILD</strong></sub>
+{% endif %}{% if previous_build %}  <tr><td width="100%">
+    <p><strong>PREVIOUS BUILD</strong></p>
     <h3><a href="https://github.com/{{ previous_build.repository | e }}">{{ previous_build.title | e }} ↗</a></h3>
     <p>{{ previous_build.description | e }}</p>
     <p>{% for tech in previous_build.technologies %}<code>{{ tech | e }}</code>{% if not loop.last %} &nbsp; {% endif %}{% endfor %}</p>
   </td></tr>
-</table>
-{% endif %}
-<table>
-  <tr><td>
+{% endif %}  <tr><td width="100%">
     <h3><a href="{{ build_collection_url | e }}">Build Collection →</a></h3>
     <p>Explore experiments, applications, and developer tools.</p>
     <p><a href="{{ build_collection_url | e }}">View all builds ↗</a></p>
@@ -63,15 +57,15 @@
 
 ## GitHub Stats
 
-{% if stats %}| Metric | Public GitHub data |
+| Metric | Public GitHub data |
 | :--- | ---: |
-| Public repositories | **{{ stats.public_repos }}** |
-| Stars received | **{{ stats.stars_received }}** |
-| Followers | **{{ stats.followers }}** |
-| Following | **{{ stats.following }}** |
-{% else %}Public GitHub statistics will appear after the first successful automated sync.
+| ⭐ Public repositories | **{{ stats.public_repos if stats else '—' }}** |
+| ⭐ Stars received | **{{ stats.stars_received if stats else '—' }}** |
+| Followers | **{{ stats.followers if stats else '—' }}** |
+| Following | **{{ stats.following if stats else '—' }}** |
+{% if not stats %}<sub>Stats pending: run the GitHub Actions “Update Profile README” workflow or `python3 scripts/fetch_stats.py` to populate verified public counts.</sub>
+{% else %}<sub>Public GitHub API data · refreshed by GitHub Actions. Private activity is not included.</sub>
 {% endif %}
-<sub>Counts are based on publicly accessible GitHub data, not an inferred grade or private contributions.</sub>
 
 ---
 

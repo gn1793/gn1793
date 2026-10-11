@@ -1,0 +1,11 @@
+groups:
+  - name: Deep Learning
+    technologies: [Python, PyTorch, PyTorch Geometric]
+  - name: Molecular Modeling
+    technologies: [RDKit, Biopython]
+  - name: Molecular Property Prediction
+    technologies: [Molecular Descriptors, Molecular Graphs, Cheminformatics]
+  - name: Data Science
+    technologies: [NumPy, Pandas, scikit-learn]
+  - name: Engineering
+    technologies: [GitHub, Linux, Swift]

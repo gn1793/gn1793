@@ -1,0 +1,19 @@
+projects:
+  - id: rna-ligand-pose-quality
+    title: RNA–Ligand Pose Quality Prediction
+    status: In Progress
+    description: Developing geometric deep learning models to assess RNA–ligand docking pose quality and improve pose reranking.
+    keywords: [RNA–Ligand, RMSD Prediction, Geometric DL]
+    repository: null
+    featured: true
+    visible: true
+    order: 1
+  - id: admet-prediction
+    title: ADMET Prediction
+    status: In Progress
+    description: Developing machine learning approaches for predicting absorption, distribution, metabolism, excretion, and toxicity properties of small molecules.
+    keywords: [ADMET, Cheminformatics, Property Prediction]
+    repository: null
+    featured: true
+    visible: true
+    order: 2

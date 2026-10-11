@@ -1,0 +1,17 @@
+builds:
+  - id: ai-usage-system-monitor
+    title: AI Usage System Monitor
+    description: A macOS application for monitoring AI usage and system resources.
+    repository: gn1793/AI-Usage-System-Monitor
+    technologies: [Swift, macOS]
+    published_at: null
+    featured: true
+    visible: true
+  - id: codemonitor
+    title: CodeMonitor
+    description: A utility for monitoring CPU, GPU, and RAM usage.
+    repository: gn1793/CodeMonitor
+    technologies: [Python, System Monitoring]
+    published_at: null
+    featured: false
+    visible: true

@@ -40,9 +40,23 @@ class TextRenderTests(unittest.TestCase):
         self.assertIn('RNA–Ligand Pose Quality Prediction', readme)
         self.assertIn('ADMET Prediction', readme)
         self.assertIn('The Build Lab', readme)
-        self.assertIn('GitHub · Linux · Swift', readme)
+        self.assertIn('**Engineering** · GitHub, Linux, Swift', readme)
         self.assertNotIn('assets/generated/', readme)
         self.assertNotIn('Docker', readme)
+
+    def test_v4_compact_layout(self):
+        from build_readme import main
+        main()
+        readme = (ROOT / 'README.md').read_text(encoding='utf-8')
+        self.assertIn('## Featured Research', readme)
+        self.assertIn('## The Build Lab', readme)
+        self.assertIn('## Tools & Technologies', readme)
+        self.assertIn('## Recent Activity', readme)
+        self.assertNotIn('## Research Interests', readme)
+        self.assertNotIn('## Publications', readme)  # Hide empty section
+        self.assertNotIn('assets/generated/', readme)
+        self.assertNotIn('Docker', readme)
+        self.assertNotIn('**Git**', readme)
 
     def test_markdown_links(self):
         from build_readme import main

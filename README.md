@@ -25,7 +25,7 @@
 ---
 ## Tools & Technologies
 
-<p><img src="assets/cards/tools-1.svg" width="50%" alt="Languages. Python, Swift" /><img src="assets/cards/tools-2.svg" width="50%" alt="Deep Learning. PyTorch, PyTorch Geometric" /></p>
+<p><img src="assets/cards/tools-1.svg" width="50%" alt="Languages. Python" /><img src="assets/cards/tools-2.svg" width="50%" alt="Deep Learning. PyTorch, PyTorch Geometric" /></p>
 <p><img src="assets/cards/tools-3.svg" width="50%" alt="Molecular. RDKit, Biopython, Cheminformatics" /><img src="assets/cards/tools-4.svg" width="50%" alt="Engineering. GitHub, Linux" /></p>
 
 

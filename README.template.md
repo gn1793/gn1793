@@ -9,19 +9,27 @@
 ## Featured Research
 
 <table width="100%">
+{% for pair in projects | batch(2) %}
+{% set pair_index = loop.index0 %}
 <tr>
-{% for project in projects %}
+{% for project in pair %}
 <td width="50%" valign="top">
-<sub>{{ '%02d' | format(loop.index) }} / {% if loop.index == 1 %}STRUCTURE-BASED DRUG DISCOVERY{% else %}MOLECULAR PROPERTY PREDICTION{% endif %}</sub>
+<sub>{{ '%02d' | format(pair_index * 2 + loop.index) }} / {% if pair_index * 2 + loop.index == 1 %}STRUCTURE-BASED DRUG DISCOVERY{% else %}MOLECULAR PROPERTY PREDICTION{% endif %}</sub>
 <h3>{{ project.title | e }}</h3>
 <p>{{ project.description | e }}</p>
+</td>
+{% endfor %}
+</tr>
+<tr>
+{% for project in pair %}
+<td width="50%" valign="bottom">
 <p>{% for keyword in project.keywords %}<code>{{ keyword | e }}</code> {% endfor %}</p>
 <p><sub>Status: {{ project.status | e }}</sub></p>
 {% if project.repository %}<p><a href="https://github.com/{{ project.repository | e }}">View repository ↗</a></p>{% endif %}
 </td>
-{% if loop.index is even and not loop.last %}</tr><tr>{% endif %}
 {% endfor %}
 </tr>
+{% endfor %}
 </table>
 
 ---

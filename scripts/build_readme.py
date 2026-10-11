@@ -3,6 +3,7 @@ import re
 from html import escape
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 from common import ROOT, DATA, load_data, visible_items
+from render_cards import render
 
 
 def md_text(value):
@@ -12,6 +13,7 @@ def md_text(value):
 
 
 def main():
+    render()
     projects = sorted((p for p in visible_items('projects.yaml', 'projects') if p.get('featured')),
                       key=lambda p: p.get('order', 999))
     builds = visible_items('builds.yaml', 'builds')

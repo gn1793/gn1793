@@ -46,3 +46,31 @@ publications:
 - 공개 repository의 commit author가 GitHub 계정으로 확인된 경우만 활동 항목에 기록됩니다.
 - GitHub README의 HTML은 일부 제한됩니다. CSS/JS를 사용하지 않으며 GitHub 기본 HTML table과 Markdown만 사용합니다.
 - SVG/배너는 향후 실제 연구 구조 데이터로 대체 가능합니다. 현재 Hero는 직접 생성한 이미지입니다.
+
+## v2 visual cards
+
+`python scripts/build_readme.py` now also generates self-contained SVG cards in
+`assets/generated/`. Commit these cards together with `README.md`; they are
+needed for GitHub to display the visual profile. The scheduled GitHub Action
+commits both automatically. The files are deterministic and do not require
+external image hosts or remote icon resources.
+
+To change text, update `data/*.yaml`, then run the generator. To change
+appearance, edit `scripts/render_cards.py`. Custom layout is limited by
+GitHub's Markdown renderer; this is a static SVG approximation of the design
+mockup, not a fully interactive HTML/CSS page.
+
+### Upgrade existing profile repository
+
+Copy the contents of this v2 folder over your existing checkout (do not copy
+or replace `.git`). From the existing checkout, run:
+
+```bash
+python3 -m pip install -r requirements.txt
+python3 scripts/validate_data.py
+python3 scripts/build_readme.py
+python3 -m unittest discover -s tests -v
+git add README.md README.template.md scripts/ tests/ assets/generated/ .github/workflows/ SETUP.md
+git commit -m "feat: add scientific SVG profile cards"
+git push origin main
+```

@@ -29,3 +29,24 @@ class ProfileTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class VisualRenderTests(unittest.TestCase):
+    def test_svg_cards_generated_and_valid(self):
+        import xml.etree.ElementTree as ET
+        from render_cards import render, OUT
+        render()
+        files = sorted(OUT.glob('*.svg'))
+        self.assertEqual(len(files), 13)
+        for path in files:
+            ET.parse(path)
+            self.assertIn('viewBox', path.read_text(encoding='utf-8'))
+
+    def test_readme_links_to_generated_cards(self):
+        from build_readme import main
+        main()
+        readme = (ROOT / 'README.md').read_text(encoding='utf-8')
+        self.assertIn('assets/generated/latest-build.svg', readme)
+        self.assertIn('research-admet-prediction.svg', readme)
+        self.assertIn('assets/generated/stack-5.svg', readme)
+        self.assertNotIn('Docker', readme)

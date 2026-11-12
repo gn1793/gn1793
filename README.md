@@ -41,4 +41,4 @@
 
 *Latest public updates across tracked projects*
 
-<p><a href="https://github.com/gn1793/AI-Usage-System-Monitor/commit/1c881634b03da79391da09aae86c08ddfa3c564f"><img src="assets/cards/activity-1.svg" width="50%" alt="01 / 2026-10-11. AI-Usage-System-Monitor. Update README.md. View commit ↗" /></a><a href="https://github.com/gn1793/CodeMonitor/commit/6802d30506fbbb3cf147ee01f6c83ffa5d9f58ae"><img src="assets/cards/activity-2.svg" width="50%" alt="02 / 2025-09-20. CodeMonitor. Update schema.py. View commit ↗" /></a></p>
+<p><a href="https://github.com/gn1793/AI-Usage-System-Monitor/commit/ef3673896e1e0d063e014542e3ae0e1a2b6ff691"><img src="assets/cards/activity-1.svg" width="50%" alt="01 / 2026-11-12. AI-Usage-System-Monitor. Fix OpenAI credit refresh with inactive grants. View commit ↗" /></a></p>
